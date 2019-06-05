@@ -1,0 +1,27 @@
+<main class="col-md-12 ml-sm-auto col-lg-12" role="main">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <img width="300" alt="Logo" src="../assets/images/toy.svg" style="width:100px;">
+  </div>
+  <h2>Here are some links to help you start: </h2>
+
+  <button pButton type="button" icon="pi pi-plus" title="Add Column" (click)="addColumn()" [disabled]="columns.length === 20" style="margin-right: .5em"></button>
+  <button pButton type="button" icon="pi pi-minus" title="Remove Column" (click)="removeColumn()"[disabled]="columns.length === 1"></button>
+
+  <div>
+    <button pButton type="button" label="Warning" class="ui-button-rounded ui-button-success"></button>
+  </div>
+
+
+
+  <div class="p-grid" style="margin-top: .5em">
+    <div class="p-col" [@animation]="'visible'">
+      <div class="box">Locomotive</div>
+    </div>
+    <div class="p-col" *ngFor="let col of columns; let i=index" [@animation]="'visible'">
+      <div class="box">Car {{i + 1}}</div>
+    </div>
+  </div>
+</main>
